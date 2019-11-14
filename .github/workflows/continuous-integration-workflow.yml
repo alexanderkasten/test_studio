@@ -18,7 +18,7 @@ jobs:
       run: npm i @process-engine/ci_tools
     - name: Prepare version
       run: |
-        # does prepare the version, but not commit it
+        ## does prepare the version, but not commit it
         ./node_modules/.bin/ci_tools prepare-version --allow-dirty-workdir
     
     - name: Stash package.json
