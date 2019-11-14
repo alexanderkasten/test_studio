@@ -114,8 +114,8 @@ jobs:
 
     - name: Build the Electron app
       run: npm run electron-build-macos
-      env: 
-        CSC_LINK: ${{ secrets.CSC_LINK }}
+     # env: 
+      #  CSC_LINK: ${{ secrets.CSC_LINK }}
 
     - name: Prepare macOS Bundle
       run: |
@@ -215,30 +215,30 @@ jobs:
         GH_USER: ${{ secrets.GH_USER }}
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-  publish_npm:
-    name: "Publish npm package"
-    needs: prepare_and_tag_version
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-    
-    - name: Unstash package.json
-      uses: actions/download-artifact@master
-      with:
-        name: package_json
-        path: "."
-   
-    - name: Install ci tools
-      run: npm i @process-engine/ci_tools
-
-    - name: Publish npm package
-      run: ./node_modules/.bin/ci_tools publish-npm-package --create-tag-from-branch-name
-      env: 
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+ # publish_npm:
+ #   name: "Publish npm package"
+ #   needs: prepare_and_tag_version
+ #   runs-on: ubuntu-18.04
+ #   steps:
+ #   - uses: actions/checkout@master
+ #   - name: Use Node.js 10.x
+ #     uses: actions/setup-node@v1
+ #     with:
+ #       node-version: 10.x
+ #   
+ #   - name: Unstash package.json
+ #     uses: actions/download-artifact@master
+ #     with:
+ #       name: package_json
+ #       path: "."
+ #  
+ #   - name: Install ci tools
+ #     run: npm i @process-engine/ci_tools
+#
+ #   - name: Publish npm package
+ #     run: ./node_modules/.bin/ci_tools publish-npm-package --create-tag-from-branch-name
+ #     env: 
+ #       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish_github:
     name: "Publish GitHub Release"
