@@ -212,28 +212,28 @@ stages:
 - stage: Publish
   jobs:
   - job: Publish_npm_package
-    displayName: Publish npm package
-    pool:
-      vmImage: 'ubuntu-16.04'
-    steps:
+#    displayName: Publish npm package
+#    pool:
+#      vmImage: 'ubuntu-16.04'
+#    steps:
 
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '10.x'
-      displayName: 'Install Node.js'
+#    - task: NodeTool@0
+#      inputs:
+#        versionSpec: '10.x'
+#      displayName: 'Install Node.js'
 
-    - script: npm i @process-engine/ci_tools
-      displayName: 'Install CI Tools'
+#    - script: npm i @process-engine/ci_tools
+#      displayName: 'Install CI Tools'
 
-    - download: current
-      artifact: package_json
+#    - download: current
+#      artifact: package_json
 
-    - script: |
-        ./node_modules/.bin/ci_tools publish-npm-package --create-tag-from-branch-name
-      displayName: 'Publish to npm'
-      env:
-        NPM_TOKEN: $(NPM_TOKEN)
-        GIT_BRANCH: $(currentBranch)
+#    - script: |
+#        ./node_modules/.bin/ci_tools publish-npm-package --create-tag-from-branch-name
+#      displayName: 'Publish to npm'
+#      env:
+#        NPM_TOKEN: $(NPM_TOKEN)
+#        GIT_BRANCH: $(currentBranch)
   
   - job: Publish_GitHub_release
     displayName: Publish GitHub Release
