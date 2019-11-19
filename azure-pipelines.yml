@@ -211,7 +211,7 @@ stages:
 
 - stage: Publish
   jobs:
-  - job: Publish_npm_package
+ # - job: Publish_npm_package
 #    displayName: Publish npm package
 #    pool:
 #      vmImage: 'ubuntu-16.04'
