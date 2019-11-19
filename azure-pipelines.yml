@@ -258,16 +258,16 @@ stages:
     - download: current
       artifact: dist_electron_macos
 
-    #- script: |
-    #    ./node_modules/.bin/ci_tools update-github-release \
-    #                  --assets $(workspace)/dist_electron_windows/bpmn-studio-setup-*.exe \
-    #                  --assets $(workspace)/dist_electron_windows/bpmn-studio-setup-*.exe.blockmap \
-    #                  --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.zip \
-    #                  --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.dmg \
-    #                  --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.dmg.blockmap \
-    #                  --assets $(workspace)/dist_electron_macos/latest-mac.yml \
-    #                  --assets $(workspace)/dist_electron_windows/latest.yml
-    #  displayName: 'Upload GitHub Release'
-    #  env:
-    #    GH_USER: $(GH_USER)
-    #    GH_TOKEN: $(GH_TOKEN)
+    - script: |
+        ./node_modules/.bin/ci_tools update-github-release \
+                      --assets $(workspace)/dist_electron_windows/bpmn-studio-setup-*.exe \
+                      --assets $(workspace)/dist_electron_windows/bpmn-studio-setup-*.exe.blockmap \
+                      --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.zip \
+                      --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.dmg \
+                      --assets $(workspace)/dist_electron_macos/bpmn-studio-setup-*.dmg.blockmap \
+                      --assets $(workspace)/dist_electron_macos/latest-mac.yml \
+                      --assets $(workspace)/dist_electron_windows/latest.yml
+      displayName: 'Upload GitHub Release'
+      env:
+        GH_USER: $(GH_USER)
+        GH_TOKEN: $(GH_TOKEN)
