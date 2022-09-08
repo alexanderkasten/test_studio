@@ -75,7 +75,7 @@
     "get-port": "^5.0.0",
     "highlight.js": "9.15.10",
     "highlightjs-line-numbers.js": "^2.7.0",
-    "jszip": "3.2.2",
+    "jszip": "3.7.0",
     "minimist": "^1.2.0",
     "moment": "2.24.0",
     "node-abi": "2.12.0",
