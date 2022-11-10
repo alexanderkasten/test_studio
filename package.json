@@ -123,7 +123,7 @@
     "debounce": "^1.2.0",
     "debug": "^4.1.1",
     "downloadjs": "1.4.7",
-    "electron": "7.0.0",
+    "electron": "18.3.7",
     "electron-builder": "21.2.0",
     "electron-rebuild": "^1.8.6",
     "eslint": "^6.5.1",
